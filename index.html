@@ -3,258 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jean Michel Irankunda - Mechanical Engineering Portfolio</title>
+    <title>Jean Michel Irankunda | Mechanical Engineering</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d4a7c;
+            --accent-color: #d32f2f;
+            --light-color: #f8f9fa;
+            --medium-color: #e9ecef;
+            --dark-color: #212529;
+            --text-color: #333333;
+            --text-light: #6c757d;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+            --border-radius: 4px;
+            --container-width: 1200px;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
+        /* Layout */
         .container {
-            max-width: 1200px;
+            max-width: var(--container-width);
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 var(--spacing-md);
         }
         
-        /* Header Styles */
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-top: var(--spacing-lg);
+        }
+        
+        h4 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Header */
         header {
-            background: linear-gradient(135deg, #1a3a8f 0%, #2c5aa0 100%);
-            color: white;
-            padding: 30px 0;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #e63946;
+            padding: var(--spacing-xl) 0;
+            border-bottom: 1px solid var(--medium-color);
+            margin-bottom: var(--spacing-xl);
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             flex-wrap: wrap;
         }
         
-        .name-title h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
+        .header-left {
+            flex: 2;
+            min-width: 300px;
         }
         
-        .name-title h2 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: #a3c4ff;
-        }
-        
-        .contact-info {
+        .header-right {
+            flex: 1;
+            min-width: 250px;
             text-align: right;
         }
         
-        .contact-info p {
-            margin-bottom: 5px;
+        .name-title h1 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: var(--spacing-sm);
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 8px;
+            gap: var(--spacing-sm);
         }
         
-        /* Section Styles */
+        /* Sections */
         section {
-            background-color: white;
-            margin-bottom: 30px;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #1a3a8f;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--medium-color);
         }
         
-        section h2 {
-            color: #1a3a8f;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #eaeff5;
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .education-header {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-sm);
         }
         
-        section h2 i {
-            color: #e63946;
-        }
-        
-        /* Table Layouts */
-        .table-container {
-            overflow-x: auto;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        
-        th {
-            background-color: #f0f4ff;
-            color: #1a3a8f;
-            padding: 15px;
-            text-align: left;
-            border-bottom: 2px solid #d0d9f0;
-        }
-        
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #eaeff5;
-            vertical-align: top;
-        }
-        
-        tr:hover {
-            background-color: #f9faff;
-        }
-        
-        /* Project Illustrations */
-        .project-illustration {
-            width: 100%;
-            height: 150px;
-            background-color: #f0f4ff;
-            border-radius: 6px;
+        .education-details {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 15px;
-            border: 1px solid #d0d9f0;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
         }
         
-        .illustration-content {
-            width: 90%;
-            height: 90%;
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .detail-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Coursework & Honors */
+        .coursework-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .coursework-item {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background-color: var(--light-color);
+            border-left: 3px solid var(--accent-color);
+        }
+        
+        .honors-list {
+            list-style-position: inside;
+        }
+        
+        .honors-list li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* Experience */
+        .experience-item {
+            margin-bottom: var(--spacing-lg);
+            padding-left: var(--spacing-lg);
             position: relative;
         }
         
-        /* Skills Table */
+        .experience-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .experience-details {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .responsibilities {
+            list-style-position: inside;
+        }
+        
+        .responsibilities li {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .project-item {
+            padding: var(--spacing-md);
+            border-left: 4px solid var(--secondary-color);
+            background-color: var(--light-color);
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+        }
+        
+        .project-description {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .project-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+        
+        .tech-tag {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            background-color: var(--medium-color);
+            border-radius: var(--border-radius);
+        }
+        
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
         .skill-category {
-            font-weight: 600;
-            color: #1a3a8f;
-            width: 25%;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .skill-category h4 {
+            margin-bottom: var(--spacing-sm);
         }
         
         .skill-list {
-            width: 75%;
+            list-style: none;
         }
         
-        .skill-tag {
-            display: inline-block;
-            background-color: #eef2ff;
-            color: #1a3a8f;
-            padding: 6px 12px;
-            margin: 3px 5px 3px 0;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            border-left: 3px solid #e63946;
-        }
-        
-        /* Timeline for experience */
-        .timeline {
+        .skill-list li {
+            margin-bottom: var(--spacing-xs);
+            padding-left: var(--spacing-sm);
             position: relative;
-            padding-left: 30px;
         }
         
-        .timeline:before {
-            content: '';
+        .skill-list li:before {
+            content: '→';
             position: absolute;
-            left: 10px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #1a3a8f;
+            left: 0;
+            color: var(--accent-color);
         }
         
-        .timeline-item {
-            position: relative;
-            margin-bottom: 20px;
+        /* Athletic Experience */
+        .athletic-content {
+            display: flex;
+            gap: var(--spacing-xl);
+            flex-wrap: wrap;
         }
         
-        .timeline-item:before {
-            content: '';
-            position: absolute;
-            left: -25px;
-            top: 5px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #e63946;
-            border: 2px solid #1a3a8f;
+        .athletic-details {
+            flex: 2;
+            min-width: 300px;
         }
         
-        /* Simple SVG Illustrations */
-        .solar-illustration {
-            width: 100%;
-            height: 100%;
+        .athletic-skills {
+            flex: 1;
+            min-width: 250px;
         }
         
-        .wind-tunnel-illustration {
-            width: 100%;
-            height: 100%;
-        }
-        
-        .monitoring-illustration {
-            width: 100%;
-            height: 100%;
+        .skills-developed {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
         }
         
         /* Footer */
         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1a3a8f;
+            padding: var(--spacing-xl) 0;
+            background-color: var(--primary-color);
             color: white;
-            margin-top: 40px;
-            border-top: 4px solid #e63946;
+            text-align: center;
+            margin-top: var(--spacing-xl);
         }
         
-        /* Responsive Design */
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+        
+        .footer-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-lg);
+        }
+        
+        .footer-contact a {
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        /* Utility Classes */
+        .text-accent {
+            color: var(--accent-color);
+        }
+        
+        .text-light {
+            color: var(--text-light);
+        }
+        
+        .mb-sm {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .mb-md {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .mb-lg {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
             .header-content {
                 flex-direction: column;
-                text-align: center;
             }
             
-            .contact-info {
-                text-align: center;
-                margin-top: 15px;
+            .header-right {
+                text-align: left;
+                margin-top: var(--spacing-lg);
             }
             
-            .contact-info p {
-                justify-content: center;
+            .contact-info li {
+                justify-content: flex-start;
             }
             
-            .skill-category, .skill-list {
-                width: 100%;
-                display: block;
+            .education-header, .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
-            th, td {
-                padding: 10px;
+            .education-details {
+                flex-direction: column;
+                gap: var(--spacing-sm);
             }
         }
         
-        /* Minimal Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Simple line illustrations */
+        .line-illustration {
+            width: 100%;
+            height: 1px;
+            background-color: var(--medium-color);
+            margin: var(--spacing-lg) 0;
+            position: relative;
         }
         
-        section {
-            animation: fadeIn 0.5s ease-out;
-        }
-        
-        tr {
-            transition: background-color 0.2s ease;
+        .line-illustration:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -3px;
+            width: 30%;
+            height: 7px;
+            background-color: var(--accent-color);
         }
     </style>
 </head>
@@ -262,59 +451,65 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="name-title">
-                    <h1>Jean Michel Irankunda</h1>
-                    <h2>Mechanical Engineering Student | Swarthmore College</h2>
+                <div class="header-left">
+                    <div class="name-title">
+                        <h1>Jean Michel Irankunda</h1>
+                        <p class="subtitle">Mechanical Engineering Student | Swarthmore College</p>
+                    </div>
                 </div>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> jiranku1@swarthmore.edu</p>
-                    <p><i class="fas fa-phone"></i> +1 484 472 2016</p>
-                    <p><i class="fab fa-linkedin"></i> linkedin.com/in/jean-michel-irankunda</p>
+                <div class="header-right">
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> jiranku1@swarthmore.edu</li>
+                        <li><i class="fas fa-phone"></i> +1 484 472 2016</li>
+                        <li><i class="fab fa-linkedin"></i> linkedin.com/in/jean-michel-irankunda</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </header>
     
-    <div class="container">
+    <main class="container">
         <!-- Education Section -->
         <section id="education">
-            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Institution</th>
-                        <th>Degree</th>
-                        <th>Graduation</th>
-                        <th>GPA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Swarthmore College</strong><br>Swarthmore, PA</td>
-                        <td>Bachelor of Science in Mechanical Engineering</td>
-                        <td>Expected May 2028</td>
-                        <td>3.71</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>Education</h2>
             
-            <div style="margin-top: 20px;">
-                <h3>Relevant Coursework</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Engineering Design</span>
-                    <span class="skill-tag">Mechanics (Statics & Dynamics)</span>
-                    <span class="skill-tag">Thermodynamics</span>
-                    <span class="skill-tag">Electric Circuit Analysis</span>
-                    <span class="skill-tag">Linear Algebra</span>
-                    <span class="skill-tag">Physics</span>
-                    <span class="skill-tag">CS50 Python</span>
-                    <span class="skill-tag">CS50 AI</span>
+            <div class="education-item">
+                <div class="education-header">
+                    <h3>Swarthmore College</h3>
+                    <div class="text-accent">Expected May 2028</div>
                 </div>
-            </div>
-            
-            <div style="margin-top: 20px;">
-                <h3>Honors & Affiliations</h3>
-                <ul style="padding-left: 20px;">
+                
+                <div class="education-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Degree</span>
+                        <strong>Bachelor of Science in Mechanical Engineering</strong>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Location</span>
+                        Swarthmore, PA
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">GPA</span>
+                        3.71
+                    </div>
+                </div>
+                
+                <div class="line-illustration"></div>
+                
+                <h4>Relevant Coursework</h4>
+                <div class="coursework-list">
+                    <div class="coursework-item">Engineering Design</div>
+                    <div class="coursework-item">Mechanics (Statics & Dynamics)</div>
+                    <div class="coursework-item">Thermodynamics</div>
+                    <div class="coursework-item">Electric Circuit Analysis</div>
+                    <div class="coursework-item">Linear Algebra</div>
+                    <div class="coursework-item">Physics</div>
+                    <div class="coursework-item">CS50 Python</div>
+                    <div class="coursework-item">CS50 AI</div>
+                </div>
+                
+                <h4>Honors & Affiliations</h4>
+                <ul class="honors-list">
                     <li>Swarthmore Engineering Fellowship for Research and Design</li>
                     <li>Morris Monsky Prize in Mathematics and Statistics</li>
                     <li>Sigma Xi, The Scientific Research Honor Society</li>
@@ -322,259 +517,216 @@
             </div>
         </section>
         
-        <!-- Engineering Experience Section -->
+        <!-- Experience Section -->
         <section id="experience">
-            <h2><i class="fas fa-briefcase"></i> Engineering Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
+            <h2>Engineering Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
                     <h3>Research Assistant, Solar Energy & Wind Tunnel Laboratories</h3>
-                    <p><strong>Swarthmore College</strong> | Dec 2024 – Feb 2025</p>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li>Supported experimental research in solar energy systems and aerodynamics through system setup, calibration, and testing</li>
-                        <li>Designed and built an adjustable mounting mechanism enabling repeatable angle-of-attack variation in wind tunnel experiments</li>
-                        <li>Installed solar panels and calibrated instruments including pyranometers and viscometers for performance validation</li>
-                        <li>Analyzed solar performance data and contributed to technical documentation and reporting</li>
-                    </ul>
+                    <div class="text-light">Dec 2024 – Feb 2025</div>
                 </div>
-                
-                <div class="timeline-item">
+                <div class="experience-details">
+                    <strong>Swarthmore College</strong>
+                </div>
+                <ul class="responsibilities">
+                    <li>Supported experimental research in solar energy systems and aerodynamics through system setup, calibration, and testing</li>
+                    <li>Designed and built an adjustable mounting mechanism enabling repeatable angle-of-attack variation in wind tunnel experiments</li>
+                    <li>Installed solar panels and calibrated instruments including pyranometers and viscometers for performance validation</li>
+                    <li>Analyzed solar performance data and contributed to technical documentation and reporting</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
                     <h3>Lab Technician, Engineering Department</h3>
-                    <p><strong>Swarthmore College</strong> | Dec 2024 – Feb 2025</p>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li>Maintained 3D printers and supported daily operations in the machine shop environment</li>
-                        <li>Reverse engineered and improved physical model kits through hands-on fabrication and assembly</li>
-                        <li>Enforced lab safety standards and supported students in technical workflows</li>
-                    </ul>
+                    <div class="text-light">Dec 2024 – Feb 2025</div>
                 </div>
-                
-                <div class="timeline-item">
+                <div class="experience-details">
+                    <strong>Swarthmore College</strong>
+                </div>
+                <ul class="responsibilities">
+                    <li>Maintained 3D printers and supported daily operations in the machine shop environment</li>
+                    <li>Reverse engineered and improved physical model kits through hands-on fabrication and assembly</li>
+                    <li>Enforced lab safety standards and supported students in technical workflows</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
                     <h3>Peer Tutor, MakerSpace</h3>
-                    <p><strong>Agahozo Shalom Youth Village, Rwanda</strong> | Jul 2023 – Sep 2023</p>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
-                        <li>Taught digital fabrication skills including 3D printing and laser engraving</li>
-                        <li>Maintained equipment and supported design-to-fabrication workflows for student projects</li>
-                    </ul>
+                    <div class="text-light">Jul 2023 – Sep 2023</div>
                 </div>
+                <div class="experience-details">
+                    <strong>Agahozo Shalom Youth Village, Rwanda</strong>
+                </div>
+                <ul class="responsibilities">
+                    <li>Taught digital fabrication skills including 3D printing and laser engraving</li>
+                    <li>Maintained equipment and supported design-to-fabrication workflows for student projects</li>
+                </ul>
             </div>
         </section>
         
         <!-- Projects Section -->
         <section id="projects">
-            <h2><i class="fas fa-project-diagram"></i> Engineering Projects</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Project</th>
-                            <th>Description</th>
-                            <th>Illustration</th>
-                            <th>Technologies</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Solar-Powered Microgreen Growth Hub</strong></td>
-                            <td>Designed a modular solar-powered system for controlled microgreen cultivation in off-grid environments. Performed energy budgeting, structural design, and sustainability-focused system integration.</td>
-                            <td>
-                                <div class="project-illustration">
-                                    <svg class="solar-illustration" viewBox="0 0 200 120">
-                                        <!-- Solar Panel -->
-                                        <rect x="50" y="30" width="100" height="15" fill="#4a6fa5" stroke="#2c5aa0" stroke-width="1"/>
-                                        <line x1="50" y1="30" x2="60" y2="20" stroke="#2c5aa0" stroke-width="2"/>
-                                        <line x1="150" y1="30" x2="140" y2="20" stroke="#2c5aa0" stroke-width="2"/>
-                                        <line x1="50" y1="45" x2="60" y2="55" stroke="#2c5aa0" stroke-width="2"/>
-                                        <line x1="150" y1="45" x2="140" y2="55" stroke="#2c5aa0" stroke-width="2"/>
-                                        
-                                        <!-- Sun -->
-                                        <circle cx="180" cy="20" r="10" fill="#ffd166"/>
-                                        <line x1="180" y1="10" x2="180" y2="5" stroke="#ffd166" stroke-width="2"/>
-                                        <line x1="180" y1="30" x2="180" y2="35" stroke="#ffd166" stroke-width="2"/>
-                                        <line x1="170" y1="20" x2="165" y2="20" stroke="#ffd166" stroke-width="2"/>
-                                        <line x1="190" y1="20" x2="195" y2="20" stroke="#ffd166" stroke-width="2"/>
-                                        
-                                        <!-- Growth Chamber -->
-                                        <rect x="70" y="60" width="60" height="40" fill="#a8dadc" stroke="#1d3557" stroke-width="1"/>
-                                        <rect x="75" y="65" width="50" height="30" fill="#f1faee" stroke="#1d3557" stroke-width="0.5"/>
-                                        <line x1="100" y1="60" x2="100" y2="45" stroke="#1d3557" stroke-width="1" stroke-dasharray="2,2"/>
-                                        
-                                        <!-- Plants -->
-                                        <path d="M85,85 L85,75 L83,77 L85,75 L87,77 Z" fill="#2a9d8f"/>
-                                        <path d="M95,85 L95,75 L93,77 L95,75 L97,77 Z" fill="#2a9d8f"/>
-                                        <path d="M105,85 L105,75 L103,77 L105,75 L107,77 Z" fill="#2a9d8f"/>
-                                        <path d="M115,85 L115,75 L113,77 L115,75 L117,77 Z" fill="#2a9d8f"/>
-                                    </svg>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="skill-tag">Solar Energy</span>
-                                <span class="skill-tag">Structural Design</span>
-                                <span class="skill-tag">Energy Budgeting</span>
-                                <span class="skill-tag">Sustainability</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>River Overflow Monitoring System</strong></td>
-                            <td>Developed a concept early-warning system to monitor overflow risks using environmental sensing and alert logic. Evaluated deployment feasibility, reliability, and safety considerations in real-world conditions.</td>
-                            <td>
-                                <div class="project-illustration">
-                                    <svg class="monitoring-illustration" viewBox="0 0 200 120">
-                                        <!-- River -->
-                                        <path d="M20,80 Q60,60 100,75 Q140,90 180,70" fill="#a8dadc" stroke="#457b9d" stroke-width="1"/>
-                                        
-                                        <!-- River Banks -->
-                                        <path d="M20,80 Q60,60 100,75 Q140,90 180,70 L180,120 L20,120 Z" fill="#f1faee"/>
-                                        
-                                        <!-- Monitoring Station -->
-                                        <rect x="120" y="50" width="20" height="25" fill="#4a6fa5" stroke="#1d3557" stroke-width="1"/>
-                                        <rect x="125" y="55" width="10" height="10" fill="#e63946"/>
-                                        <circle cx="130" cy="40" r="5" fill="#1d3557"/>
-                                        <line x1="130" y1="40" x2="130" y2="50" stroke="#1d3557" stroke-width="1"/>
-                                        
-                                        <!-- Water Level Indicator -->
-                                        <line x1="80" y1="75" x2="80" y2="50" stroke="#1d3557" stroke-width="1"/>
-                                        <line x1="75" y1="65" x2="85" y2="65" stroke="#e63946" stroke-width="2"/>
-                                        <line x1="75" y1="60" x2="85" y2="60" stroke="#ffd166" stroke-width="2"/>
-                                        <line x1="75" y1="55" x2="85" y2="55" stroke="#2a9d8f" stroke-width="2"/>
-                                        
-                                        <!-- Warning Symbol -->
-                                        <circle cx="160" cy="40" r="8" fill="#ffd166"/>
-                                        <path d="M160,35 L160,45 M155,40 L165,40" stroke="#1d3557" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="skill-tag">Environmental Sensing</span>
-                                <span class="skill-tag">Alert Systems</span>
-                                <span class="skill-tag">Feasibility Analysis</span>
-                                <span class="skill-tag">Risk Assessment</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <h2>Engineering Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-title">Solar-Powered Microgreen Growth Hub</div>
+                    <div class="project-description">
+                        Designed a modular solar-powered system for controlled microgreen cultivation in off-grid environments. Performed energy budgeting, structural design, and sustainability-focused system integration.
+                    </div>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Solar Energy</span>
+                        <span class="tech-tag">Structural Design</span>
+                        <span class="tech-tag">Energy Budgeting</span>
+                        <span class="tech-tag">Sustainability</span>
+                    </div>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-title">River Overflow Monitoring System</div>
+                    <div class="project-description">
+                        Developed a concept early-warning system to monitor overflow risks using environmental sensing and alert logic. Evaluated deployment feasibility, reliability, and safety considerations in real-world conditions.
+                    </div>
+                    <div class="project-technologies">
+                        <span class="tech-tag">Environmental Sensing</span>
+                        <span class="tech-tag">Alert Systems</span>
+                        <span class="tech-tag">Feasibility Analysis</span>
+                        <span class="tech-tag">Risk Assessment</span>
+                    </div>
+                </div>
             </div>
         </section>
         
         <!-- Skills Section -->
         <section id="skills">
-            <h2><i class="fas fa-tools"></i> Skills</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Skills</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="skill-category">CAD & Design</td>
-                            <td class="skill-list">
-                                <span class="skill-tag">Siemens NX</span>
-                                <span class="skill-tag">Autodesk Fusion 360</span>
-                                <span class="skill-tag">SolidWorks</span>
-                                <span class="skill-tag">Blender</span>
-                                <span class="skill-tag">Engineering Drawing Interpretation</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="skill-category">Programming & Analysis</td>
-                            <td class="skill-list">
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">MATLAB</span>
-                                <span class="skill-tag">Data Analysis</span>
-                                <span class="skill-tag">Excel</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="skill-category">Engineering</td>
-                            <td class="skill-list">
-                                <span class="skill-tag">Prototyping</span>
-                                <span class="skill-tag">Fabrication</span>
-                                <span class="skill-tag">Assembly/Disassembly</span>
-                                <span class="skill-tag">Experimental Methods</span>
-                                <span class="skill-tag">Instrumentation</span>
-                                <span class="skill-tag">Lab Safety</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="skill-category">Professional</td>
-                            <td class="skill-list">
-                                <span class="skill-tag">Project Ownership</span>
-                                <span class="skill-tag">Analytical Thinking</span>
-                                <span class="skill-tag">Teamwork</span>
-                                <span class="skill-tag">Communication</span>
-                                <span class="skill-tag">Adaptability</span>
-                                <span class="skill-tag">Leadership</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>CAD & Design</h4>
+                    <ul class="skill-list">
+                        <li>Siemens NX</li>
+                        <li>Autodesk Fusion 360</li>
+                        <li>SolidWorks</li>
+                        <li>Blender</li>
+                        <li>Engineering drawing interpretation</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Programming & Analysis</h4>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>Data analysis</li>
+                        <li>Excel</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Engineering</h4>
+                    <ul class="skill-list">
+                        <li>Prototyping</li>
+                        <li>Fabrication</li>
+                        <li>Assembly/disassembly</li>
+                        <li>Experimental methods</li>
+                        <li>Instrumentation</li>
+                        <li>Lab safety</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Professional</h4>
+                    <ul class="skill-list">
+                        <li>Project ownership</li>
+                        <li>Analytical thinking</li>
+                        <li>Teamwork</li>
+                        <li>Communication</li>
+                        <li>Adaptability</li>
+                        <li>Leadership</li>
+                    </ul>
+                </div>
             </div>
         </section>
         
         <!-- Athletic Experience -->
         <section id="athletic">
-            <h2><i class="fas fa-running"></i> Athletic Experience</h2>
-            <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 300px;">
+            <h2>Athletic Experience</h2>
+            
+            <div class="athletic-content">
+                <div class="athletic-details">
                     <h3>Varsity Track & Field Athlete</h3>
                     <p><strong>Swarthmore College</strong> | 15+ hrs/week</p>
-                    <ul style="margin-top: 10px; padding-left: 20px;">
+                    <ul class="responsibilities">
                         <li>Balanced rigorous engineering coursework with high-performance sprint training and competition</li>
                         <li>Developed discipline, resilience, and teamwork in high-pressure environments</li>
                     </ul>
                 </div>
-                <div style="flex: 0 0 250px; margin-top: 15px;">
-                    <h4>Athletic Skills Developed</h4>
-                    <span class="skill-tag">Discipline</span>
-                    <span class="skill-tag">Resilience</span>
-                    <span class="skill-tag">Time Management</span>
-                    <span class="skill-tag">Teamwork</span>
-                    <span class="skill-tag">Performance Under Pressure</span>
+                
+                <div class="athletic-skills">
+                    <h4>Skills Developed</h4>
+                    <div class="skills-developed">
+                        <span class="tech-tag">Discipline</span>
+                        <span class="tech-tag">Resilience</span>
+                        <span class="tech-tag">Time Management</span>
+                        <span class="tech-tag">Teamwork</span>
+                        <span class="tech-tag">Performance Under Pressure</span>
+                    </div>
                 </div>
             </div>
         </section>
-    </div>
+    </main>
     
     <footer>
         <div class="container">
-            <p>© 2025 Jean Michel Irankunda | Mechanical Engineering Portfolio</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">
-                <i class="fas fa-envelope"></i> jiranku1@swarthmore.edu | 
-                <i class="fas fa-phone"></i> +1 484 472 2016 |
-                <i class="fab fa-linkedin"></i> linkedin.com/in/jean-michel-irankunda
-            </p>
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <a href="mailto:jiranku1@swarthmore.edu">
+                        <i class="fas fa-envelope"></i>
+                        jiranku1@swarthmore.edu
+                    </a>
+                    <a href="tel:+14844722016">
+                        <i class="fas fa-phone"></i>
+                        +1 484 472 2016
+                    </a>
+                    <a href="https://linkedin.com/in/jean-michel-irankunda" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        linkedin.com/in/jean-michel-irankunda
+                    </a>
+                </div>
+                <p>© 2025 Jean Michel Irankunda. All rights reserved.</p>
+            </div>
         </div>
     </footer>
     
     <script>
-        // Simple JavaScript for minimal interactivity
+        // Simple script to add smooth scrolling
         document.addEventListener('DOMContentLoaded', function() {
-            // Add hover effect to table rows
-            const tableRows = document.querySelectorAll('tbody tr');
+            // Add a class to the body to fade in content
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
             
-            tableRows.forEach(row => {
-                row.addEventListener('mouseenter', function() {
-                    this.style.backgroundColor = '#f0f4ff';
-                });
-                
-                row.addEventListener('mouseleave', function() {
-                    this.style.backgroundColor = '';
-                });
-            });
+            setTimeout(function() {
+                document.body.style.opacity = '1';
+            }, 10);
             
-            // Add smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+            // Handle anchor links for smooth scrolling
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
                     const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
+                    if (targetId === '#') return;
                     
                     const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
+                    if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 20,
+                            top: targetElement.offsetTop - 100,
                             behavior: 'smooth'
                         });
                     }
